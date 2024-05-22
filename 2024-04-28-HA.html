@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"example.com","root":"/","images":"/images","scheme":"Pisces","darkmode":true,"version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="&#8195;&#8195;百度百科：启发式算法（heuristic algorithm)是相对于最优化算法提出的。一个问题的最优算法求得该问题每个实例的最优解。启发式算法可以这样定义：一个基于直观或经验构造的算法，在可接受的花费（指计算时间和空间）下给出待解决组合优化问题每一个实例的一个可行解，该可行解与最优解的偏离程度一般不能被预计。现阶段，启发式算法以仿自然体算法为主，主要有蚁群算法、模拟退">
+<meta property="og:type" content="website">
+<meta property="og:title" content="启发式算法">
+<meta property="og:url" content="http://example.com/2024-04-28-HA.html">
+<meta property="og:site_name" content="金阁寺">
+<meta property="og:description" content="&#8195;&#8195;百度百科：启发式算法（heuristic algorithm)是相对于最优化算法提出的。一个问题的最优算法求得该问题每个实例的最优解。启发式算法可以这样定义：一个基于直观或经验构造的算法，在可接受的花费（指计算时间和空间）下给出待解决组合优化问题每一个实例的一个可行解，该可行解与最优解的偏离程度一般不能被预计。现阶段，启发式算法以仿自然体算法为主，主要有蚁群算法、模拟退">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-05-22T04:21:14.444Z">
+<meta property="article:modified_time" content="2024-05-05T09:52:37.968Z">
+<meta property="article:author" content="北斗">
+<meta property="article:tag" content="遗传算法">
+<meta property="article:tag" content="模拟退火">
+<meta property="article:tag" content="禁忌搜索">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2024-04-28-HA">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":true,"permalink":"http://example.com/2024-04-28-HA.html","path":"2024-04-28-HA.html","title":"启发式算法"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>启发式算法 | 金阁寺
+</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">金阁寺</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95%E4%BB%8E%E4%BD%95%E8%80%8C%E6%9D%A5%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">启发式算法从何而来？</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%80%E4%BA%9B%E5%AE%A2%E8%A7%82%E9%99%90%E5%88%B6"><span class="nav-number">1.1.</span> <span class="nav-text">一些客观限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9D%A5%E6%BA%90%E4%B8%8E%E5%8F%91%E5%B1%95"><span class="nav-number">1.2.</span> <span class="nav-text">来源与发展</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">分类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A8%A1%E6%8B%9F%E9%80%80%E7%81%AB%EF%BC%88SA%EF%BC%89"><span class="nav-number">3.</span> <span class="nav-text">模拟退火（SA）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3"><span class="nav-number">3.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%AD%A5%E9%AA%A4"><span class="nav-number">3.2.</span> <span class="nav-text">算法步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95%EF%BC%88GA%EF%BC%89"><span class="nav-number">4.</span> <span class="nav-text">遗传算法（GA）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3-1"><span class="nav-number">4.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%AD%A5%E9%AA%A4-1"><span class="nav-number">4.2.</span> <span class="nav-text">算法步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A6%81%E5%BF%8C%E6%90%9C%E7%B4%A2%E7%AE%97%E6%B3%95%EF%BC%88TS%EF%BC%89"><span class="nav-number">5.</span> <span class="nav-text">禁忌搜索算法（TS）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3-2"><span class="nav-number">5.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%AD%A5%E9%AA%A4-2"><span class="nav-number">5.2.</span> <span class="nav-text">算法步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%9A%81%E7%BE%A4%E7%AE%97%E6%B3%95%EF%BC%88ACO%EF%BC%89"><span class="nav-number">6.</span> <span class="nav-text">蚁群算法（ACO）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3-3"><span class="nav-number">6.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%AD%A5%E9%AA%A4-3"><span class="nav-number">6.2.</span> <span class="nav-text">算法步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B2%92%E5%AD%90%E7%BE%A4%E7%AE%97%E6%B3%95%EF%BC%88PSO%EF%BC%89"><span class="nav-number">7.</span> <span class="nav-text">粒子群算法（PSO）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3-4"><span class="nav-number">7.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%AD%A5%E9%AA%A4-4"><span class="nav-number">7.2.</span> <span class="nav-text">算法步骤</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94"><span class="nav-number">8.</span> <span class="nav-text">对比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%AF%E5%8F%91%E5%BC%8F%E7%AE%97%E6%B3%95%E7%BC%BA%E9%99%B7%EF%BC%9A"><span class="nav-number">9.</span> <span class="nav-text">启发式算法缺陷：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#END"><span class="nav-number">10.</span> <span class="nav-text">END</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">北斗</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner page posts-expand">
+
+
+    
+    
+    
+    <div class="post-block" lang="zh-CN"><header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">启发式算法
+</h1>
+
+<div class="post-meta-container">
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+          <p>&#8195;&#8195;百度百科：启发式算法（heuristic algorithm)是相对于最优化算法提出的。一个问题的最优算法求得该问题每个实例的最优解。启发式算法可以这样定义：一个基于直观或经验构造的算法，在可接受的花费（指计算时间和空间）下给出待解决组合优化问题每一个实例的一个可行解，该可行解与最优解的偏离程度一般不能被预计。现阶段，启发式算法以仿自然体算法为主，主要有蚁群算法、模拟退火法、神经网络等。</p>
+<span id="more"></span>
+
+<p>&emsp;&#8195;启发式算法只是解决问题的一种框架，也可以说是一种套路。启发式算法需要联系具体问题，<strong>问题的建模、搜索过程与启发式算法框架合理的结合</strong>，才能体现出比较好的效果。</p>
+<h3 id="启发式算法从何而来？"><a href="#启发式算法从何而来？" class="headerlink" title="启发式算法从何而来？"></a>启发式算法从何而来？</h3><h4 id="一些客观限制"><a href="#一些客观限制" class="headerlink" title="一些客观限制"></a>一些客观限制</h4><p>&#8195;&#8195;1.NP完全理论告诉我们，许多实际问题不可能在合理的时间范围内找到全局最优解。此时我们希望去找一个逼近最优解的解。<br>&#8195;&#8195;2.有时非最优解也可接受。</p>
+<h4 id="来源与发展"><a href="#来源与发展" class="headerlink" title="来源与发展"></a>来源与发展</h4><p>&emsp;&#8195;启发式算法的来源可以追溯到人类解决问题的思维方式和经验。其设计灵感通常来自于人类的直觉、经验和观察，以及对问题的理解和分析。<br>&emsp;&#8195;40年代提出，50年代逐步繁荣（贪婪算法和局部搜索等）。60年代取得了进展，但能力有限。70年代，贪婪算法和局部搜索算法的局限性导致了超启发式算法的产生。遗传算法提出，引起了人们研究的兴趣，掀起了研究的热潮。80年代以后，模拟退火算法，人工神经网络，禁忌搜索相继出现。</p>
+<h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><p>&emsp;&#8195;简单启发式算法 (Simple Heuristic Algorithms)：这类算法通常针对特定问题设计，依赖于问题的特殊性来快速找到可能的解决方案，但可能无法保证找到全局最优解。常见的简单启发式算法包括贪心算法、局部搜索和爬山算法。</p>
+<p>&emsp;&#8195;超启发式算法 (Hyper-Heuristic Algorithms)：超启发式算法是近年来提出的一种新的优化算法类型，它们通过组合一系列的启发式算法来形成新的启发式算法。超启发式算法的特点是结构简单、容易实现，但需要大量的数据和计算资源。它们可以进一步分为基于随机选择、基于贪心算法、基于元启发式算法和基于学习的超启发式算法。</p>
+<p>&emsp;&#8195;元启发式算法 (Meta-Heuristic Algorithms)：元启发式算法是独立于问题的技术，它们不依赖于问题的特殊性，可以作为黑匣子使用。这些算法设计得更为复杂，能够处理更复杂的问题和更大的搜索空间。元启发式算法通过模拟自然现象（如遗传、蚂蚁寻找食物等）来寻找最优解。常见的元启发式算法包括遗传算法 (GA)、粒子群优化 (PSO)、蚁群算法 (ACA)、禁忌搜索 (TS) 和模拟退火 (SA)。这一部分是本次介绍的内容。</p>
+<h3 id="模拟退火（SA）"><a href="#模拟退火（SA）" class="headerlink" title="模拟退火（SA）"></a>模拟退火（SA）</h3><h4 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a><strong>基本思想</strong></h4><p>&emsp;&#8195;模拟退火算法(Simulated Annealing, SA)的思想借鉴于固体的退火原理，当固体的温度很高的时候，内能比较大，固体的内部粒子处于快速无序运动，当温度慢慢降低的过程中，固体的内能减小，粒子的慢慢趋于有序，最终，当固体处于常温时，内能达到最小，此时，粒子最为稳定。</p>
+<h4 id="算法步骤"><a href="#算法步骤" class="headerlink" title="算法步骤"></a><strong>算法步骤</strong></h4><p>1.初始化：初始化温度T(充分大)，温度下限Tmin(充分小)，初始解X，</p>
+<p>2.生成新解：每个T值迭代次数L随机生成临域解x_new；</p>
+<p>3.邻域解评估：设f(x)函数来计算用来计算解得好坏，计算出f(x_new)-f(x)，如果f(x_new)-f(x)&gt;0，说明新解比原来的解好，则无条件接受，如果f(x_new)-f(x)&lt;0，则说明旧解比新解好，则以一定概率接受x_new作为解。</p>
+<p>4.迭代更新：如果当前温度&lt;Tmin时，则退出循环，输出当前结果，否则减少当前温度，回到第2步继续循环，常用的降温方法为T&#x3D; k*T (0&lt;k&lt;1)，一般k取接近1的值。</p>
+<p>5.输出结果：输出最优解或根据最优解进行进一步的处理。</p>
+<h3 id="遗传算法（GA）"><a href="#遗传算法（GA）" class="headerlink" title="遗传算法（GA）"></a>遗传算法（GA）</h3><h4 id="基本思想-1"><a href="#基本思想-1" class="headerlink" title="基本思想"></a><strong>基本思想</strong></h4><p>&emsp;&#8195;遗传算法（Genetic Algorithm，GA）起源于对生物系统所进行的计算机模拟研究，模拟了自然选择和遗传中发生的复制、交叉和变异等现象，从任一初始种群出发，通过随机选择、交叉和变异操作，产生一群更适合环境的个体，使群体进化到搜索空间中越来越好的区域，这样一代一代不断繁衍进化，最后收敛到一群最适应环境的个体，从而求得问题的优质解。</p>
+<h4 id="算法步骤-1"><a href="#算法步骤-1" class="headerlink" title="算法步骤"></a>算法步骤</h4><p>1.初始化种群：设置种群大小、染色体长度、迭代次数等参数，并随机生成初始种群的个体（染色体）。</p>
+<p>2.评估个体适应度：计算每个个体的适应度值，即根据个体的染色体表示确定解的质量。</p>
+<p>3.选择个体：根据个体的适应度值，采用选择操作选择一部分个体作为下一代的父代，选择个体的概率与其适应度成正比。</p>
+<p>4.交叉操作：从父代中选择两个个体，通过交叉操作生成两个子代个体。交叉操作可以采用单点交叉、多点交叉、均匀交叉等方法。</p>
+<blockquote>
+<p>单点交叉： 变异操作会对子代个体的某一个基因进行随机的扰动或变化。变异后的值可以是随机生成的一个新值，也可以是在一定范围内对原基因值进行微小的扰动。这样可以在搜索过程中引入新的解空间，增加搜索的多样性，有助于发现更优的解。例如，在二进制编码的遗传算法中，某个子代个体的某一个基因位置上的值为0，经过变异操作后可能变为1，或者在一定概率下发生反转。变异操作的具体形式和策略可以根据具体问题和算法设计进行调整。<br>​多点交叉：将父代个体P_1和P_2的对应基因段在交叉点位置进行交换，生成新的个体x_{new}。<br>交叉点之间的基因段保持不变，交叉点处的基因进行交换。这样可以将两个父代个体的优良基因段组合在一起，增加了个体的多样性和搜索空间。交叉点的位置集合C需要根据具体问题和算法设计进行选择和调整，以达到合适的交叉效果。</p>
+</blockquote>
+<p>5.变异操作：对子代个体进行变异操作，以增加种群的多样性。变异操作可以随机选择染色体中的一个或多个基因，并随机改变其值。</p>
+<p>6.更新种群：将父代和子代个体合并，形成新的种群。</p>
+<p>7.更新最优解：在每次迭代中，记录找到的最优解。</p>
+<p>8.迭代更新：重复步骤2至步骤7，直到达到设定的迭代次数或其他终止条件。</p>
+<p>9.输出结果：输出最优解或根据最优解进行进一步的处理。</p>
+<h3 id="禁忌搜索算法（TS）"><a href="#禁忌搜索算法（TS）" class="headerlink" title="禁忌搜索算法（TS）"></a>禁忌搜索算法（TS）</h3><h4 id="基本思想-2"><a href="#基本思想-2" class="headerlink" title="基本思想"></a>基本思想</h4><p>&emsp;&#8195;采用邻域选优的搜索方法，算法可以接受劣解。最近接受的一些移动会被放在禁忌表中，在以后的迭代中加以禁止。即只有不在禁忌表中的较好解（可能比当前解差）才能接受作为下一代迭代的初始解。禁忌表可以看作记忆力，它的表长就是记忆时间。当迭代次数超过表长后，最早进入禁忌表的解便会释放。</p>
+<h4 id="算法步骤-2"><a href="#算法步骤-2" class="headerlink" title="算法步骤"></a>算法步骤</h4><p>1.初始化：设置禁忌表、迭代次数、当前解等参数，并随机生成初始解。</p>
+<p>2.生成候选解：根据当前解，生成一组候选解。候选解可以通过变换当前解的某些部分得到，例如交换两个元素的位置、插入一个元素等。</p>
+<p>3.评估候选解：对于每个候选解，计算其对应的目标函数值。</p>
+<p>4.判断是否接受候选解：根据一定的准则（例如目标函数值的变化、禁忌表等），判断是否接受候选解。如果候选解被接受，则将其设为当前解；否则，继续生成下一个候选解。</p>
+<p>5.更新禁忌表：将当前解或其他相关信息加入禁忌表，以避免在接下来的几步中再次选择相同的解。</p>
+<p>6.更新最优解：在每次迭代中，记录找到的最优解。</p>
+<p>7.迭代更新：重复步骤2至步骤6，直到达到设定的迭代次数或其他终止条件。</p>
+<p>8.输出结果：输出最优解或根据最优解进行进一步的处理</p>
+<h3 id="蚁群算法（ACO）"><a href="#蚁群算法（ACO）" class="headerlink" title="蚁群算法（ACO）"></a>蚁群算法（ACO）</h3><h4 id="基本思想-3"><a href="#基本思想-3" class="headerlink" title="基本思想"></a>基本思想</h4><p>&emsp;&#8195;蚁群可以在不同的环境下，寻找最短到达食物源的路径。后经研究发现，蚂蚁会在其经过的路径上释放一种可以称之为“信息素”的物质，蚁群内的蚂蚁对“信息素”具有感知能力，路径上的信息素浓度会随着时间的推进而逐渐衰减。蚂蚁会优先选择信息素浓度高的路径，而每只路过的蚂蚁都会在路上留下“信息素”，这就形成一种类似正反馈的机制，这样经过一段时间后，整个蚁群就会沿着最短路径到达食物源了。</p>
+<h4 id="算法步骤-3"><a href="#算法步骤-3" class="headerlink" title="算法步骤"></a>算法步骤</h4><p>1.初始化蚁群：设置蚂蚁数量、迭代次数、信息素初始值等参数，并随机放置蚂蚁在问题空间中的起始位置。</p>
+<p>2.更新信息素：根据蚂蚁的路径选择和问题的目标函数值，更新路径上的信息素值。一般来说，路径上的信息素值会根据蚂蚁的选择和目标函数值进行增加或减少。</p>
+<p>3.蚂蚁移动：每只蚂蚁根据一定的概率规则，选择下一个要移动的位置。这个概率规则通常是基于信息素浓度和启发式信息（例如距离、路径质量等）的权衡。蚂蚁按照概率选择下一个位置，并更新路径和已访问的位置。</p>
+<p>4.更新最优解：在每次迭代中，记录找到的最优解。</p>
+<p>5.迭代更新：重复步骤2至步骤4，直到达到设定的迭代次数或其他终止条件。</p>
+<p>6.输出结果：输出最优解或根据最优解进行进一步的处理。</p>
+<h3 id="粒子群算法（PSO）"><a href="#粒子群算法（PSO）" class="headerlink" title="粒子群算法（PSO）"></a>粒子群算法（PSO）</h3><h4 id="基本思想-4"><a href="#基本思想-4" class="headerlink" title="基本思想"></a>基本思想</h4><p>&emsp;&#8195;灵感来源于鸟群或鱼群等群体的行为。它模拟了群体中个体之间的信息交流和协作，通过不断地迭代搜索，在搜索空间中寻找最优解。基本思想是将待优化问题抽象为一个多维的搜索空间，每个解被称为一个粒子。每个粒子都有自己的位置和速度，并通过与其他粒子的交互来更新自己的位置和速度。粒子的位置表示当前解，而速度则表示解的搜索方向和步长。核心在于利用群体中的个体对信息的共享，从而使整个群体的运动在问题求解空间中产生从无序到有序的演化过程，以获得问题的可行解。</p>
+<blockquote>
+<p>通俗版本：<br>小鸟们的目标很简单，要在这一带找到食物最充足的位置安家、休养生息。<br>试着想一下一群鸟在寻找食物，在这个区域中只有一只虫子，所有的鸟都不知道食物在哪。但是它们知道自己的当前位置距离食物有多远，同时它们知道离食物最近的鸟的位置。</p>
+<p>想一下这时候会发生什么？<br>    鸟A：哈哈哈原来虫子离我最近！<br>    鸟B,C,D：我得赶紧往 A 那里过去看看！<br>同时各只鸟在位置不停变化时候离食物的距离也不断变化，所以一定有过离食物最近的位置，这也是它们的一个参考。</p>
+<p>鸟某某：我刚刚的位置好像靠近了食物，我得往那里靠近！<br>（鸟类的这几种想法是粒子群算法的核心）<br>有了这样的想法，它们在这个地方的搜索策略如下：</p>
+<p>1.每只鸟随机找一个地方，评估这个地方的食物量。<br>2.所有的鸟一起开会，选出这群鸟遇到的食物量最多的地方作为安家的候选点G,我们也可以称候选点G为群体中的鸟儿去过的食物量最多的位置<br>3.每只鸟回顾自己的旅程，记住自己曾经去过的食物量最多的地方P。<br>4.每只鸟为了找到食物量更多的地方，于是向着G飞行，但是呢，不知是出于选择困难症还是对P的留恋，或者是对G的不信任，小鸟向G飞行时，时不时也向P飞行，其实它自己也不知道到底是G的食物多还是向P的食物多。毕竟G和P方向的食物都比较多，<br>5.另外还考虑鸟儿飞行的惯性，也就是鸟儿无法立即停下来，由于惯性它会下一次飞行到达点Q<br>6.又到了开会的时间，如果小鸟们决定停止寻找，那么它们会选择当前的G来安家；否则继续2-&gt;3-&gt;4-&gt;5-&gt;6来寻找它们的栖息地。<br>7.假如现在我们就是那只鸟，决定向着P和G飞行，因为那里食物多。但是因为存在惯性，我们无法立马停下来，因此还可能朝着另外一个不知名的地方Q飞行，毕竟万一Q的食物多呢？但是我们是佛系鸟，具体飞多少随缘。本该到达地方Q的，但是由于收到P和G两个地方食物的诱惑，它到达不了Q。<br>8.最终，我们一定会找到食物最多的地方，因此每一次的寻找，P点和Q点都在不断更新，最后会收敛到食物最多的地方</p>
+</blockquote>
+<h4 id="算法步骤-4"><a href="#算法步骤-4" class="headerlink" title="算法步骤"></a>算法步骤</h4><p>1.初始化：设置粒子数量、迭代次数、搜索空间的边界等参数，并随机生成初始粒子群的位置和速度。</p>
+<p>2.评估粒子：计算每个粒子对应的目标函数值，即根据当前位置确定解的质量。</p>
+<p>3.更新粒子速度和位置：根据粒子的当前位置和速度，通过一定的公式更新粒子的速度和位置。公式中包含了三个重要的因素：粒子自身的历史最优位置、当前群体中的全局最优位置以及速度的惯性。</p>
+<p>4.更新最优解：在每次迭代中，记录找到的最优解。</p>
+<p>5.迭代更新：重复步骤2至步骤4，直到达到设定的迭代次数或其他终止条件。</p>
+<p>6.输出结果：输出最优解或根据最优解进行进一步的处理。</p>
+<h3 id="对比"><a href="#对比" class="headerlink" title="对比"></a>对比</h3><p>&emsp;&#8195;遗传算法，模拟退火算法，禁忌搜索算法都是以概率选取新点或者避免重复搜索等的方式进行最优解的搜索（搜索目标函数的最值），蚁群算法主要是解决离组合优化等离散问题的最优值，粒子群更适合高维度问题。</p>
+<ul>
+<li>多个最优解：模拟退火算法、遗传算法、蚁群算法等具有全局搜索能力的算法。</li>
+<li>约束条件：禁忌搜索算法、蚁群算法等能够处理约束条件的算法。</li>
+<li>搜索空间比较大：模拟退火算法、禁忌搜索算法、遗传算法、粒子群算法等具有高效搜索能力的算法。</li>
+<li>高维度特征：粒子群算法等适合处理高维问题的算法。</li>
+<li>需要实时响应：禁忌搜索算法、蚁群算法等能够快速响应的算法。</li>
+</ul>
+<h3 id="启发式算法缺陷："><a href="#启发式算法缺陷：" class="headerlink" title="启发式算法缺陷："></a>启发式算法缺陷：</h3><p>1.局部最优解陷阱：在问题的搜索空间非常大或复杂的情况下，虽然算法通过接受一定概率的劣解来跳出局部最优解，但仍然可能无法找到全局最优解。</p>
+<p>2.参数选择困难：算法中有许多参数需要进行调整这些参数的选择对算法的性能和结果有很大影响，但往往很难确定最佳的参数值，需要通过实验和经验进行调整。</p>
+<p>3.高计算复杂度：算法在每次迭代中需要计算和评估大量的候选解，特别是在问题的搜索空间很大时。这导致算法的计算复杂度较高，需要较长的运行时间。</p>
+<p>4.对问题的依赖性：算法的性能和效果很大程度上依赖于问题本身的特性。</p>
+<h3 id="END"><a href="#END" class="headerlink" title="END"></a>END</h3><p>关于缺陷部分，其实这几个算法都大差不差，把算法这两个字换成模拟退火、遗传、禁忌搜索等等这几个词都没问题。</p>
+<p>虽说算法思想不同，但在我看来都是一种在整个解的空间中、按照问题特点找到从较差解到较优解的趋势。借助这种趋势选定部分解，最终给出的是这部分的最优解。</p>
+<p>在这一节我没有给出任何公式类的东西，虽然说可以有，但算法思想我认为更重要，算法步骤不必照搬，理解最重要。正如我们在开头就说的：</p>
+<p>“启发式算法只是解决问题的一种框架，<strong>问题的建模、搜索过程与启发式算法框架合理的结合</strong>，才能体现出比较好的效果。”</p>
+
+      </div>
+      
+      
+      
+    </div>
+
+    
+    
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">北斗</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
